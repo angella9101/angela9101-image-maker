@@ -1,0 +1,8 @@
+{
+  "name": "AI 사진스튜디오",
+  "description": "Google AI Studio & Nano Banana 이미지 모델 기반의 전문 AI 사진 생성, 편집, 복원, 합성 스튜디오",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
