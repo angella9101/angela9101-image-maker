@@ -9,7 +9,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+export const app = express();
 app.use(express.json({ limit: '50mb' }));
 
 // Shared Gemini AI instance
@@ -206,9 +206,14 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, () => {
-    console.log(`AI 사진스튜디오 Server running on http://localhost:${PORT}`);
-  });
+  // Only listen when running standalone server script directly
+  if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+      console.log(`AI 사진스튜디오 Server running on http://localhost:${PORT}`);
+    });
+  }
 }
 
 startServer();
+
+export default app;
